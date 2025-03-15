@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Proxy Manager",
+  "description": "Управление прокси с поддержкой HTTP/HTTPS и авторизации",
+  "version": "1.0",
+  "permissions": [
+    "proxy",
+    "storage",
+    "activeTab"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}

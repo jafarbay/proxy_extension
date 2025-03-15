@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proxy Manager</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Proxy Manager</h2>
+    <label for="proxyInput">Proxy (login:password@ip:port):</label>
+    <input type="text" id="proxyInput" placeholder="login:password@ip:port">
+    
+    <label>Protocol:</label>
+    <div class="protocol-buttons">
+      <button id="httpBtn" class="protocol-btn active">HTTP</button>
+      <button id="httpsBtn" class="protocol-btn">HTTPS</button>
+    </div>
+
+    <button id="toggleProxy" class="toggle-btn">Enable Proxy</button>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
