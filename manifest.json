@@ -6,7 +6,12 @@
   "permissions": [
     "proxy",
     "storage",
-    "activeTab"
+    "activeTab",
+    "webRequest",
+    "webRequestBlocking"
+  ],
+  "host_permissions": [
+    "<all_urls>"
   ],
   "action": {
     "default_popup": "popup.html",
