@@ -1,25 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proxy Manager</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+    }
+    input[type="text"] {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .button-group {
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      flex: 1;
+      padding: 5px;
+    }
+    #status {
+      margin-top: 10px;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Proxy Manager</h2>
-    <label for="proxyInput">Proxy (login:password@ip:port):</label>
-    <input type="text" id="proxyInput" placeholder="login:password@ip:port">
-    
-    <label>Protocol:</label>
-    <div class="protocol-buttons">
-      <button id="httpBtn" class="protocol-btn active">HTTP</button>
-      <button id="httpsBtn" class="protocol-btn">HTTPS</button>
-    </div>
-
-    <button id="toggleProxy" class="toggle-btn">Enable Proxy</button>
+  <input type="text" id="proxyString" placeholder="user:pass@ip:port">
+  <div class="button-group">
+    <button id="enableProxy">Включить прокси</button>
+    <button id="disableProxy">Отключить прокси</button>
   </div>
+  <div id="status"></div>
   <script src="popup.js"></script>
 </body>
 </html>

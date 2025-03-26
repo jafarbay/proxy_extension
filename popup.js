@@ -1,13 +1,25 @@
-// В popup.js
 document.getElementById('enableProxy').addEventListener('click', function() {
-  // Предположим, что у вас есть текстовое поле для ввода прокси в формате логин:пароль@айпи:порт
-  const proxyString = document.getElementById('proxyString').value;
-  const protocol = document.getElementById('protocol').value || 'http';
+  const proxyString = document.getElementById('proxyString').value.trim();
+  
+  // Проверка формата
+  const regex = /^([^:]+):([^@]+)@([^:]+):(\d+)$/;
+  const match = proxyString.match(regex);
+  
+  if (!match) {
+    showStatus('Неверный формат. Используйте: user:pass@ip:port');
+    return;
+  }
+
+  const [_, username, password, host, port] = match;
   
   chrome.runtime.sendMessage({
     action: 'enableProxy',
-    proxyString: proxyString,
-    protocol: protocol
+    config: {
+      username,
+      password,
+      host,
+      port: parseInt(port)
+    }
   }, function(response) {
     if (response && response.success) {
       showStatus('Прокси включен');
@@ -32,7 +44,6 @@ document.getElementById('disableProxy').addEventListener('click', function() {
 function showStatus(message) {
   const statusElement = document.getElementById('status');
   statusElement.textContent = message;
-  // Автоматически скрыть сообщение через 3 секунды
   setTimeout(() => {
     statusElement.textContent = '';
   }, 3000);
